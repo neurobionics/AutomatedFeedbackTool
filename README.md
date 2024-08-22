@@ -12,6 +12,7 @@ This repository contains the code for a Google Apps Script (GAS) project. The pr
 * Email the PDF report to the lab PI 
 
 Features:
+
 **Integration with Google Services:** Integrates with Google Forms, Google Sheets and Google Drive to manage, store, and read data.
 **Google Apps Script (GAS) works with Clasp for local development and version control**
 
