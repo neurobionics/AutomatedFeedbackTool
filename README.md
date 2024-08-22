@@ -11,8 +11,9 @@ This repository contains the code for a Google Apps Script (GAS) project. The pr
 * Save the PDF feedback report in a google drive folder for record keeping
 * Email the PDF report to the lab PI 
 
-- **Integration with Google Services:** Integrates with Google Forms, Google Sheets and Google Drive to manage, store, and read data.
-- **Google Apps Script (GAS) works with Clasp for local development and version control**
+Features:
+**Integration with Google Services:** Integrates with Google Forms, Google Sheets and Google Drive to manage, store, and read data.
+**Google Apps Script (GAS) works with Clasp for local development and version control**
 
 **NOTE:** Further documentation for the project can be found [here](https://docs.google.com/document/d/1rP3qm6TnD3SodcFQG3da_QGBGn75UaBeSfXE4aAc2_c/edit?usp=sharing). It is recommended to read this documentation before cloning this GitHub repository.
 
