@@ -103,27 +103,72 @@ The email used by Prof. Rouse is provided as an example:
    clasp link
    ```
    Follow the prompts to link the project. You may need to provide the Script ID of your Google Apps Script project. You can find the Script ID in the URL of your project, https:// script. google.com /home /projects/ PROJECTID
-   
-### 6. Deploy the project
 
-To deploy the project to Google Apps Script (GAS):
+### 4. Edit the local repository with your content
 
-1. Push the code to GAS
+The following information within Code.gs and send_neurobionics_form.html will need to be populated with your information:
+
+**Code.gs**
+1. function sendFormEmail()
+   * **toEmailAddress**: Replace this with the actual recipient's email
+   * **name_of_your_file.html**: Rename 'send_neurobionics_form.html' to whatever you wish and populate here
+   * **subject**: Enter email subject
+   * **message**: Can leave blank, .html file will overwrite
+2. function refreshAndSendEmail()
+   * **REPLACE WITH YOUR FORM RESPONSE SPREADSHEET URL**: paste your forms spreadsheet URL between single quotes
+   * **FEEDBACK**: paste your feedback tab name, if different, between single quotes
+   * **YOUR GOOGLE FOLDER ID HERE**: paste google folder ID between single quotes. The ID of a google folder is the string of numbers and letters at the end of the folder URL (ex. ID = 1dyUEebJaFnWa3Z4n0BFMVAXQ7mfUH11g within the URL https:// drive. google. com/ drive/ folders/ 1dyUEebJaFnWa3Z4n0BFMVAXQ7mfUH11g)
+3. function sendEmailWithAttachment()
+   * **youremail@email.com**: replace with email address between single quotes of wherever you want to send response report
+   * **subject**: replace with email subject between single quotes
+   * **body**: insert email body between single quotes
+
+### 5. Push the updated code to Google Apps Script
+
+Push the code to GAS
    ```ruby
    clasp push
    ```
    This command uploads your local code to your new GAS project
-
-2. Deploy the project (if needed)
-   To create or update a deployment, for example, for a web app, use:
-   ```ruby
-   clasp deploy
-   ```
-   Follow the prompts to create or update the deployment. You may need to provide information such as deployment description and version number.
    
-   **NOTE:** If you would like to schedule execution of the tool, you will need to set up triggers manually within the project itself before deployment. 
-             [See project documentation for more detailed instructions for triggers and deployment](https://docs.google.com/document/d/1rP3qm6TnD3SodcFQG3da_QGBGn75UaBeSfXE4aAc2_c/edit?usp=sharing)
-			
+### 6. Deploy the project
+
+1. Add triggers within GAS environment
+
+After testing the script locally within GAS, debugging, and customizing settings to your desired specifications, you will need to set up triggers in order to run the project. Click on ‘Triggers’ from the left hand sidebar.
+
+![Trigger](https://github.com/user-attachments/assets/d37ffc20-0f9d-478d-ab5e-3087c861698a)
+
+Click ‘Add Trigger’ - you will add a separate trigger for the ‘sendFormEmail’ and ‘refreshAndSendEmail’ functions. 
+
+Customize your desired Trigger settings. 
+
+For both ‘sendFormEmail’ and ‘refreshAndSendEmail’: I recommend a time-driven event source and month timer. These options will allow you to select which day of the month and time of day the initial email is sent out, and enable you to delay sending results (e.g. 48 hours after the initial email is sent). 
+
+NOTE: It is possible to hard-code your triggers into the script itself. This project does not cover that functionality.
+
+Once you have configured the triggers, you can deploy your project.
+
+2. Deploy project within GAS environment
+
+To deploy your project, click ‘Deploy’ → ‘New Deployment’
+
+![deploy](https://github.com/user-attachments/assets/87c977ec-6471-444e-92f2-2d16418b2a43)
+
+Enter your desired information in the pop-up window. It is recommended to test your trigger timing and deployment before sending to your desired audience.
+
+## Troubleshooting
+
+1. You will likely need to authorize the project by providing permission for the script to access your data.
+
+![authorization](https://github.com/user-attachments/assets/d703df28-e5dc-4b27-a081-964ab0bfd970)
+
+Allow the project to access your Google Account: press ‘Allow’.
+
+2.  The script does not handle text wrapping/width formatting within the CurrentMonthSnapshot.pdf very well.
+
+This may require you to manually adjust column widths within the CurrentMonth data sheet and run/debug the ‘refreshAndSendEmail’ function several times to preview the CurrentMonthSnapshot.pdf output until it meets your desired format.
+
 ## Contact
    If you have any questions or need further assistance, feel free to reach out:
    * Name: Emily Klinkman, MS.
