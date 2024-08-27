@@ -11,6 +11,10 @@ This repository contains the code for a Google Apps Script (GAS) project. The pr
 * Save the PDF feedback report in a google drive folder for record keeping
 * Email the PDF report to the lab PI 
 
+To get started, you will need to create and modify some Google documents, which will then set the tool up for your group.  Once it’s created and launched, it will operate monthly in perpetuity. 
+
+To create the tool for your group, you will need to: 1) create a google form, 2) draft an email, 3) create a google apps script project.  This document will walk through the steps required, which may take an hour. 
+
 Features:
 
 **Integration with Google Services:** Integrates with Google Forms, Google Sheets and Google Drive to manage, store, and read data.
@@ -26,7 +30,7 @@ Features:
 
 ## Setup
 
-To set up and deploy this project on your local machine, follow these steps:
+To set up this project on your local machine, follow these steps:
 
 ### 1. Install Node.js and npm
 
@@ -57,7 +61,39 @@ You will need to log in to Clasp to authorize it to access your Google account
 1. Clone the repository
 2. Create a local directory for your project and navigate there using command line (terminal, etc.)
 
-### 5. Link the project with Google Apps Script
+## Google Apps Script setup
+
+### 1. Create a Google Form
+
+Using your desired Google account, create a Google form.  Instructions for creating a google form can be found [here](https://support.google.com/docs/answer/6281888?hl=en&visit_id=638580463955952407-1339523159&rd=1).  Once you have created your form, navigate to the ‘Responses’ tab and click on ‘Link to Sheets’.
+![LinkToSheets](https://github.com/user-attachments/assets/0d2e8e18-32d2-4c59-ae0a-36f19e0a9fab)
+
+This will create a google sheet to record form responses, from which your Google Apps Script will operate.
+
+To see a version of Dr. Rouse’s form, please see [this link](https://docs.google.com/forms/d/1OdzYMZ8z4nJ63IZNdYKkWeUzoCYgWLkl4dNn3VZCupY/prefill).
+
+### 2. Draft an email
+
+You will need to draft an email with your desired message that will be sent out to the target recipients of your form. Make sure to include the link to your google form within the body of this email. Once drafted, send the email to yourself. Open the email in your inbox and select ‘show original’.
+
+![email](https://github.com/user-attachments/assets/142a5372-e1a0-4dad-8bab-5c7f5cad6ccc)
+
+Copy everything that’s enclosed in the <html>...</html>  or <div…div> tags (including the tags).
+This HTML text is coded as encoded-printable, and you will need to decode it. You can use this site [here](https://www.webatic.com/quoted-printable-convertor). Copy this code to your clipboard, you will need it in the next steps.
+
+The email used by Prof. Rouse is provided as an example:
+
+	Hello team--please take <5 minutes to fill out the monthly Lab feedback form sometime in the next 24 hours (link). 
+ 	The more people who participate in providing feedback, the better we can be at addressing team needs, supporting each other, 
+  	and streamlining lab operations. 
+
+	All responses are anonymous; we will not collect names or email addresses with your feedback. Please be respectful and constructive. 
+
+	Thank you!
+
+	-Elliott
+
+### 3. Link the local GitHub repository with Google Apps Script
 
 1. Create your own Google Apps Script Project
    Start [here](https://www.google.com/script/start/).  Click on ‘Start Scripting’. Leave the project blank for now.
@@ -66,7 +102,7 @@ You will need to log in to Clasp to authorize it to access your Google account
    ```ruby
    clasp link
    ```
-   Follow the prompts to link the project. You may need to provide the Script ID of your Google Apps Script project. You can find the Script ID in the URL of your project, https://script.google.com/home/projects/<PROJECTID>
+   Follow the prompts to link the project. You may need to provide the Script ID of your Google Apps Script project. You can find the Script ID in the URL of your project, https:// script. google.com /home /projects/ PROJECTID
    
 ### 6. Deploy the project
 
