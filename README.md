@@ -4,7 +4,7 @@ Neurobionics Lab, Department of Robotics, University of Michigan, 2024
 
 ## Overview
 
-This repository contains the code for a Google Apps Script (GAS) project. The project is designed to build an automated, monthly feedback form sent to a team, the results of which are complied, saved, and sent to the Principal Investigator (PI).  The tool is ‘deploy and forget,’ meaning once the infrastructure is in place, it operates automatically in perpetuity. This tool was written for the Neurobionics Lab at the University of Michigan Department of Robotics. The purpose of this tool is to establish a quick, no-overhead feedback mechanism where students can share anything they’d like to say to their advisor.  Each month, this tool will:
+This repository contains the code for a Google Apps Script (GAS) project. The project is designed to build an automated, monthly feedback form sent to a team, the results of which are complied, saved, and sent to the Principal Investigator (PI).  The tool is ‘deploy and forget,’ meaning once the infrastructure is in place, it operates automatically in perpetuity. This tool was written for the Neurobionics Lab at the University of Michigan Department of Robotics. The purpose of this tool is to establish a quick, no-overhead feedback mechanism where students / staff can share anything they’d like to say to their advisor.  Each month, this tool will:
 
 * Automatically email a pre-defined questionnaire on the same day every month
 * Collect responses in a google sheet and generate a PDF report of the current month’s responses over two days
