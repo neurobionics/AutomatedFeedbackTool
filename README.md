@@ -66,7 +66,7 @@ You will need to log in to Clasp to authorize it to access your Google account
 ### 1. Create a Google Form
 
 Using your desired Google account, create a Google form.  Instructions for creating a google form can be found [here](https://support.google.com/docs/answer/6281888?hl=en&visit_id=638580463955952407-1339523159&rd=1).  Once you have created your form, navigate to the ‘Responses’ tab and click on ‘Link to Sheets’.
-![LinkToSheets](https://github.com/user-attachments/assets/0d2e8e18-32d2-4c59-ae0a-36f19e0a9fab)
+![LinkToSheets](https://github.com/user-attachments/assets/c190d44f-1ce7-4ad3-8439-717f857dd33f)
 
 This will create a google sheet to record form responses, from which your Google Apps Script will operate.
 
@@ -76,7 +76,7 @@ To see a version of Dr. Rouse’s form, please see [this link](https://docs.goog
 
 You will need to draft an email with your desired message that will be sent out to the target recipients of your form. Make sure to include the link to your google form within the body of this email. Once drafted, send the email to yourself. Open the email in your inbox and select ‘show original’.
 
-![email](https://github.com/user-attachments/assets/142a5372-e1a0-4dad-8bab-5c7f5cad6ccc)
+![email](https://github.com/user-attachments/assets/5c951360-cdfb-44a4-8a73-b203693108ad)
 
 Copy everything that’s enclosed in the <html>...</html>  or <div…div> tags (including the tags).
 This HTML text is coded as encoded-printable, and you will need to decode it. You can use this site [here](https://www.webatic.com/quoted-printable-convertor). Copy this code to your clipboard, you will need it in the next steps.
@@ -137,7 +137,7 @@ Push the code to GAS
 
 After testing the script locally within GAS, debugging, and customizing settings to your desired specifications, you will need to set up triggers in order to run the project. Click on ‘Triggers’ from the left hand sidebar.
 
-![Trigger](https://github.com/user-attachments/assets/d37ffc20-0f9d-478d-ab5e-3087c861698a)
+![Trigger](https://github.com/user-attachments/assets/fda03d01-7282-431a-a25e-8c2fd5f7b317)
 
 Click ‘Add Trigger’ - you will add a separate trigger for the ‘sendFormEmail’ and ‘refreshAndSendEmail’ functions. 
 
@@ -153,7 +153,7 @@ Once you have configured the triggers, you can deploy your project.
 
 To deploy your project, click ‘Deploy’ → ‘New Deployment’
 
-![deploy](https://github.com/user-attachments/assets/87c977ec-6471-444e-92f2-2d16418b2a43)
+![deploy](https://github.com/user-attachments/assets/67e79154-d131-4d74-83fe-bf7ffb9e6775)
 
 Enter your desired information in the pop-up window. It is recommended to test your trigger timing and deployment before sending to your desired audience.
 
@@ -161,7 +161,7 @@ Enter your desired information in the pop-up window. It is recommended to test y
 
 1. You will likely need to authorize the project by providing permission for the script to access your data.
 
-![authorization](https://github.com/user-attachments/assets/d703df28-e5dc-4b27-a081-964ab0bfd970)
+![authorization](https://github.com/user-attachments/assets/db536c78-593d-4427-8ae8-4b80d9e1981a)
 
 Allow the project to access your Google Account: press ‘Allow’.
 
