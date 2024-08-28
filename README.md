@@ -19,9 +19,7 @@ Features:
 
 **Integration with Google Services:** Integrates with Google Forms, Google Sheets and Google Drive to manage, store, and read data.
 
-**Google Apps Script (GAS) works with Clasp for local development and version control**
-
-**NOTE:** Further documentation for the project can be found [here](https://docs.google.com/document/d/1rP3qm6TnD3SodcFQG3da_QGBGn75UaBeSfXE4aAc2_c/edit?usp=sharing). It is recommended to read this documentation before cloning this GitHub repository.
+**Google Apps Script (GAS) works with [Clasp](https://github.com/google/clasp) for local development and version control**
 
 ## Files
 
