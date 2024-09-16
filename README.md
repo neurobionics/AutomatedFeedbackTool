@@ -111,6 +111,8 @@ This will create a google sheet to record form responses, from which your Google
 
 To see a version of Dr. Rouse’s form, please see [this link](https://docs.google.com/forms/d/1OdzYMZ8z4nJ63IZNdYKkWeUzoCYgWLkl4dNn3VZCupY/prefill).
 
+NOTE: this sheet needs to be owned by whomever is setting up and deploying the project, in order for GAS to have permissions to pull its content.
+
 ### 3. Draft an email
 
 You will need to draft an email with your desired message that will be sent out to the target recipients of your form. Make sure to include the link to your google form within the body of this email. Once drafted, send the email to yourself. Open the email in your inbox and select ‘show original’.
@@ -137,20 +139,24 @@ The email used by Prof. Rouse is provided as an example:
 
 The following information within Code.gs and send_neurobionics_form.html will need to be populated with your information. This can either be done locally using a text editor or coding environment, or within the GAS editing page once you push the repository to your GAS project (see step 5 below). 
 
+**send_neurobionics_form.html**
+
+Replace text in this template file with your decoded html from Step 3 above. You can rename the .html file if you wish.
+
 **Code.gs**
-1. function sendFormEmail()
-   * **toEmailAddress**: Replace this with the actual recipient's email
-   * **name_of_your_file.html**: Rename 'send_neurobionics_form.html' to whatever you wish and populate here. You can also leave this as-is. 
-   * **subject**: Enter email subject
-   * **message**: Can leave blank, .html file will overwrite
-2. function refreshAndSendEmail()
-   * **REPLACE WITH YOUR FORM RESPONSE SPREADSHEET URL**: paste your forms spreadsheet URL between single quotes
-   * **FEEDBACK**: paste your feedback tab name, if different, between single quotes
-   * **YOUR GOOGLE FOLDER ID HERE**: paste google folder ID between single quotes. The ID of a google folder is the string of numbers and letters at the end of the folder URL (ex. ID = 1dyUEebJaFnWa3Z4n0BFMVAXQ7mfUH11g within the URL https:// drive. google. com/ drive/ folders/ 1dyUEebJaFnWa3Z4n0BFMVAXQ7mfUH11g)
-3. function sendEmailWithAttachment()
-   * **youremail@email.com**: replace with email address between single quotes of wherever you want to send response report
-   * **subject**: replace with email subject between single quotes
+
+Populate global variables
+   * **toEmailAddress**: populate this with the recipient's email
+   * **name_of_your_file.html**: populate with the name of your decoded html file. You can also leave this as-is if you did not change the name of the file from "send_neurobionics_form.html" 
+   * **subject**: enter email subject
+   * **message**: can leave blank, .html file will overwrite
+   * **spreadsheetURL**: paste your form response spreadsheet URL between single quotes. NOTE: this sheet needs to be owned by YOU in order for GAS to pull its content
+   * **sheetTab**: paste your feedback tab name between single quotes
+   * **folderID**: paste google folder ID between single quotes. The ID of a google folder is the string of numbers and letters at the end of the folder URL (ex. ID = 1dyUEebJaFnWa3Z4n0BFMVAXQ7mfUH11g within the URL https:// drive. google. com/ drive/ folders/ 1dyUEebJaFnWa3Z4n0BFMVAXQ7mfUH11g)
+   * **recipient**: populate email address between single quotes of wherever you want to send response report
+   * **subject_report**: report email subject between single quotes
    * **body**: insert email body between single quotes
+
 
 ### 5. Push the updated code to Google Apps Script
 
@@ -164,7 +170,13 @@ If you make changes locally, you can push the changes to your GAS project using 
    
 ### 6. Deploy the project
 
-1. Add triggers within GAS environment
+1. Test your functions in the GAS environment
+
+After using Clasp to push the project to your GAS environment, it is recommended to test/debug two functions, (1) sendFormEmail and (2) refreshAndSendEmail, before deploying. Select the function to test from the dropdown menu and click "run".
+
+![Test_function](https://github.com/user-attachments/assets/bd7af51d-301d-4faa-93e8-200711e1fbf1)
+
+2. Add triggers within GAS environment
 
 After testing the script locally within GAS, debugging, and customizing settings to your desired specifications, you will need to set up triggers in order to run the project. Click on ‘Triggers’ from the left hand sidebar.
 
@@ -174,19 +186,26 @@ Click ‘Add Trigger’ - you will add a separate trigger for the ‘sendFormEma
 
 Customize your desired Trigger settings. 
 
+![Trigger_settings](https://github.com/user-attachments/assets/b4ecb9c3-24e0-4878-93a9-d669d1b0c500)
+
 For both ‘sendFormEmail’ and ‘refreshAndSendEmail’: I recommend a time-driven event source and month timer. These options will allow you to select which day of the month and time of day the initial email is sent out, and enable you to delay sending results (e.g. 48 hours after the initial email is sent). 
 
 NOTE: It is possible to hard-code your triggers into the script itself. This project does not cover that functionality.
 
 Once you have configured the triggers, you can deploy your project.
 
-2. Deploy project within GAS environment
+3. Deploy project within GAS environment
 
-To deploy your project, click ‘Deploy’ → ‘New Deployment’
+To deploy your project, click ‘Deploy’ → ‘New Deployment’.
 
 ![deploy](https://github.com/user-attachments/assets/67e79154-d131-4d74-83fe-bf7ffb9e6775)
 
-Enter your desired information in the pop-up window. It is recommended to test your trigger timing and deployment before sending to your desired audience.
+Enter your desired information in the pop-up window. A 'Web app' deployment is recommended.
+
+![deploy_options](https://github.com/user-attachments/assets/398fb388-7ddb-4b57-98e2-5d4313179e45)
+
+It is recommended to test your trigger timing and deployment before sending to your desired audience.
+
 
 ## Troubleshooting
 
