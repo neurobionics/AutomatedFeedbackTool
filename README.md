@@ -102,7 +102,7 @@ clasp open
 ```
 Review the files to ensure everything has been uploaded correctly.
 
-### 2. Create a Google Form
+### 2. Create a Google Form & Google Drive Folder
 
 Using your desired Google account, create a Google form.  Instructions for creating a google form can be found [here](https://support.google.com/docs/answer/6281888?hl=en&visit_id=638580463955952407-1339523159&rd=1).  Once you have created your form, navigate to the ‘Responses’ tab and click on ‘Link to Sheets’.
 ![LinkToSheets](https://github.com/user-attachments/assets/c190d44f-1ce7-4ad3-8439-717f857dd33f)
@@ -112,6 +112,8 @@ This will create a google sheet to record form responses, from which your Google
 To see a version of Dr. Rouse’s form, please see [this link](https://docs.google.com/forms/d/1OdzYMZ8z4nJ63IZNdYKkWeUzoCYgWLkl4dNn3VZCupY/prefill).
 
 NOTE: this sheet needs to be owned by whomever is setting up and deploying the project, in order for GAS to have permissions to pull its content.
+
+Navigate to your Google drive and create a new folder. This folder will be used as an archive to store a PDF of the monthly feedback report.
 
 ### 3. Draft an email
 
