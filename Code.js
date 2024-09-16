@@ -1,8 +1,29 @@
+// Neurobionics Automated Feedback Form script
+// University of Michigan Robotics Department
+// EK Klinkman, EJ Rouse
+// Version 1.2 09.13.2024
+// Version 1.1 08.28.2024
+
+
+// Populate global variables with your information
+
+var toEmailAddress = ""; // Recipient email address (initial email with feedback form link)
+var htmlMessage = HtmlService.createHtmlOutputFromFile("name_of_your_file.html").getContent();
+var subject = "";// Enter email subject
+var message = ""; // Can leave blank, .html file will overwrite
+var spreadsheetURL = ''; // Form response spreadsheet URL
+var sheetTab = ''; // The name of your sheet tab you want to include in the report
+var folderID = ''; // The ID of the Google Folder within which you want to save a PDF of the report
+// The ID of a google folder is the string of numbers and letters at the end of the folder URL
+// You will need to create a Google Folder for this step
+const recipient = ''; // Recipient email address (report email)
+const subject = ''; // Report email subject
+const body = ''; // Report email body. It is recommended to include links to the form, form results summary page, and previous months' responses (google sheet)
+
+
+// Apps script code
+
 function sendFormEmail() {
-    var toEmailAddress = "recipient@email.com"; // Replace with recipient
-    var htmlMessage = HtmlService.createHtmlOutputFromFile("name_of_your_file.html").getContent();
-    var subject = "Enter Email Subject Here";
-    var message = "test"; // Can leave blank, .html file will overwrite
     MailApp.sendEmail(toEmailAddress, subject, message, {
         htmlBody: htmlMessage
     });
@@ -10,8 +31,8 @@ function sendFormEmail() {
 
 
 function refreshAndSendEmail() {
-    const ss = SpreadsheetApp.openByUrl('REPLACE WITH YOUR FORM RESPONSE SPREADSHEET URL');
-    const tabsToSnapshot = ['Feedback']; // Replace with the names of the tabs you want to snapshot
+    const ss = SpreadsheetApp.openByUrl(spreadsheetURL);
+    const tabsToSnapshot = [sheetTab]; 
 
 
     tabsToSnapshot.forEach(tabName => {
@@ -26,7 +47,7 @@ function refreshAndSendEmail() {
 
 
     const pdfBlob = generatePDF(ss);
-    savePDFToFolder(pdfBlob, 'YOUR GOOGLE FOLDER ID HERE'); // Save PDF to a folder
+    savePDFToFolder(pdfBlob, folderID); 
     sendEmailWithAttachment(pdfBlob);
 }
 
@@ -133,11 +154,6 @@ function savePDFToFolder(pdfBlob, folderId) {
 
 
 function sendEmailWithAttachment(pdfBlob) {
-    const recipient = 'youremail@email.com'; // Replace with the recipient's email address
-    const subject = 'ENTER YOUR SUBJECT HERE';
-    const body = 'Please find a PDF of the Google form responses attached. Link to form: <INSERT URL TO FORM HERE>. Link to form results summary page: <INSERT URL TO FORM SUMMARY PAGE HERE>. Previous months’ responses: <INSERT LINK TO GOOGLE SHEET HERE>';
-
-
     MailApp.sendEmail({
         to: recipient,
         subject: subject,
