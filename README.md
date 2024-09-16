@@ -219,6 +219,14 @@ Allow the project to access your Google Account: press ‘Allow’.
 
 This may require you to manually adjust column widths within the CurrentMonth data sheet and run/debug the ‘refreshAndSendEmail’ function several times to preview the CurrentMonthSnapshot.pdf output until it meets your desired format.
 
+## Issues
+
+Please report any issues [here](https://github.com/neurobionics/AutomatedFeedbackTool/issues).
+
+## Contributions
+
+Contributions are welcome. Please see the [Contributions page](https://github.com/neurobionics/AutomatedFeedbackTool/blob/master/Contributing.md) for more information.
+
 ## Contact
    If you have any questions or need further assistance, feel free to reach out:
    * Name: Emily Klinkman, MS.
