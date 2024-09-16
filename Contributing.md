@@ -40,6 +40,11 @@ We appreciate your effort to contribute code to this project! Before submitting 
 2. Create a new branch for your feature or bugfix:
    ```bash
    git checkout -b feature/your-feature-name
+   ```
+   
+### License
+
+Theis repository is licensed under the [Apache License Version 2.0](https://github.com/neurobionics/AutomatedFeedbackTool/blob/master/LICENSE.md).
 
 ## Contact
    If you have any questions or need further assistance, feel free to reach out:
