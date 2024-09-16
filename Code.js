@@ -8,7 +8,7 @@
 // Populate global variables with your information
 
 var toEmailAddress = ""; // Recipient email address (initial email with feedback form link)
-var htmlMessage = HtmlService.createHtmlOutputFromFile("name_of_your_file.html").getContent(); //e.g. "s"end_neurobionics_form.html"
+var htmlMessage = HtmlService.createHtmlOutputFromFile("name_of_your_file.html").getContent(); //e.g. "send_neurobionics_form.html"
 var subject = "";// Enter email subject
 var message = ""; // Can leave blank, .html file will overwrite
 var spreadsheetURL = ''; // Form response spreadsheet URL
